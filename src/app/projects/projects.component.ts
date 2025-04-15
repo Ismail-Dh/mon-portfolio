@@ -37,7 +37,7 @@ export class ProjectsComponent {
       tools: ['Angular', 'Spring Boot', 'Spring Security', 'MySQL', 'UML', 'Postman'],
       image: 'assets/car.webp',
       demoUrl: '#',
-      codeUrl: '#'
+      codeUrl: 'https://github.com/Ismail-Dh/projet_location_voiture_backend'
     },
     {
       title: 'Centre de Formation',
