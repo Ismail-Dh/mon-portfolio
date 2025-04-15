@@ -1,0 +1,171 @@
+/* Container principal */
+.home-space {
+    padding: 50px 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    margin-top: 2rem;
+    margin-bottom: 200px;
+  }
+  
+  /* Partie description */
+  .divdesc h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .divdesc h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  }
+  
+  .divdesc p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-align: justify;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Animation Typing Text */
+  .typing-text {
+    --typing-duration: 5s;
+    --blink-duration: 0.75s;
+    --chars: 13; 
+    
+    position: relative;
+    display: inline;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #00fff0;
+    font-family: 'Courier New', monospace;
+    color: #00fff0;
+    text-shadow: 0 0 10px #00fff0;
+    padding-right: 3px;
+    
+    animation: 
+      typing var(--typing-duration) steps(var(--chars)) forwards,
+      blink var(--blink-duration) step-end infinite,
+      erase var(--typing-duration) steps(var(--chars)) forwards calc(var(--typing-duration) * 2),
+      typing var(--typing-duration) steps(var(--chars)) forwards calc(var(--typing-duration) * 3),
+      blink var(--blink-duration) step-end infinite calc(var(--typing-duration) * 3),
+      erase var(--typing-duration) steps(var(--chars)) forwards calc(var(--typing-duration) * 4);
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes typing {
+    from { 
+      max-width: 0;
+      
+    }
+    to { 
+      max-width: 100%;
+      
+    }
+  }
+  
+  @keyframes erase {
+    from { 
+      max-width: 100%;
+      
+    }
+    to { 
+      max-width: 0;
+      
+    }
+  }
+  
+  
+  .highlight {
+    color: #00fff0;
+    text-shadow: 0 0 10px #00fff0;
+  }
+  
+  /* Partie image */
+  .divimg {
+    position: relative;
+  }
+  
+  .space-img {
+    width: 80%;
+    max-width: 350px;
+    border-radius: 50%;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+    animation: float 5s ease-in-out infinite;
+    border: 3px solid rgba(0, 255, 255, 0.3);
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  /* Icônes réseaux sociaux */
+  .d-flex.gap-3 {
+    margin-top: 2.5rem;
+    gap: 1.5rem !important;
+  }
+  
+  .d-flex.gap-3 a {
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  
+  .d-flex.gap-3 a img {
+    width: 28px;
+    height: 28px;
+    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.3));
+    transition: all 0.3s ease;
+  }
+  
+  .d-flex.gap-3 a:hover img {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 10px #00fff0);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .home-space {
+      padding: 30px 15px;
+    }
+    
+    .divdesc h1 {
+      font-size: 2rem;
+    }
+    
+    .divdesc h2 {
+      font-size: 1.3rem;
+    }
+    
+    .divdesc p {
+      font-size: 1rem;
+    }
+    
+    .space-img {
+      width: 60%;
+      margin-top: 2rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .divdesc h1 {
+      font-size: 1.8rem;
+    }
+    
+    .typing-text {
+      --typing-duration: 2.5s;
+    }
+  }

@@ -1,0 +1,108 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 700px;
+  background-color: rgba(68, 3, 246, 0.105); /* plus transparent */
+  padding: 1rem;
+  z-index: 1000;
+  border-radius: 15px;
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px); 
+  margin-top: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2); 
+}
+
+  
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; 
+   
+  }
+  
+  .menu-icon {
+    display: none; // Caché par défaut
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: Arial, sans-serif;
+    transition: color 0.3s ease, transform 0.3s ease, border-bottom 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+    display: inline-block;
+  }
+  
+  a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #0b3d91;
+    transition: width 0.3s ease;
+  }
+  
+  a:hover {
+    color: #0b3d91;
+    transform: scale(1.1);
+  }
+  
+  a:hover::after {
+    width: 100%;
+  }
+  
+  // Styles pour les écrans mobiles
+  @media (max-width: 768px) {
+    .menu-icon {
+      display: block; // Afficher l'icône du menu
+    }
+  
+    .nav-links {
+      display: none; // Cacher les liens par défaut
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: rgba(254, 254, 254, 0.103);
+      padding: 1rem;
+      border-radius: 0 0 15px 15px;
+    }
+  
+    .nav-links.active {
+      display: flex; // Afficher les liens lorsque le menu est ouvert
+    }
+  }
+
+  .active-link {
+    color: #0b3d91 !important; /* Bleu foncé */
+    font-weight: bold;
+    border-bottom: 2px solid #0b3d91; /* Soulignement */
+  }
+
+// Gardez vos styles existants et ajoutez :
+a {
+  cursor: pointer;
+  
+  &.active-link {
+    color: #0b3d91 !important;
+    font-weight: bold;
+    border-bottom: 2px solid #0b3d91;
+  }
+}
+  

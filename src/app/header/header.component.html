@@ -1,0 +1,25 @@
+<header>
+  <nav>
+    <div class="menu-icon" (click)="toggleMenu()">&#9776;</div>
+    <div class="nav-links" [class.active]="isMenuOpen">
+      <a routerLink="/" 
+         [class.active-link]="activeSection === 'home' " 
+         (click)="scrollTo('home')">Accueil</a>
+      <a routerLink="/" 
+         [class.active-link]="activeSection === 'about'" 
+         (click)="scrollTo('about')">About</a>
+      <a routerLink="/" 
+         [class.active-link]="activeSection === 'education'" 
+         (click)="scrollTo('education')">Éducation</a>
+      <a routerLink="/" 
+         [class.active-link]="activeSection === 'projects'" 
+         (click)="scrollTo('projects')">Projets</a>
+      <a routerLink="/" 
+         [class.active-link]="activeSection === 'skills'" 
+         (click)="scrollTo('skills')">Compétences</a>
+      <a routerLink="/" 
+         [class.active-link]="activeSection === 'contact'" 
+         (click)="scrollTo('contact')">Contact</a>
+    </div>
+  </nav>
+</header>

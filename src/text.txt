@@ -1,0 +1,181 @@
+<header>
+  <nav>
+    <!-- Icône de menu hamburger -->
+    <div class="menu-icon" (click)="toggleMenu()">&#9776;</div>
+    <!-- Conteneur des liens -->
+    <div class="nav-links" [class.active]="isMenuOpen">
+      <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Accueil</a>
+      <a routerLink="/about" routerLinkActive="active-link">About</a>
+      <a routerLink="/education" routerLinkActive="active-link">Éducation</a>
+      <a routerLink="/projects" routerLinkActive="active-link">Projets</a>
+      <a routerLink="/skills" routerLinkActive="active-link">Compétences</a>
+      <a routerLink="/contact" routerLinkActive="active-link">Contact</a>
+    </div>
+  </nav>
+</header>
+
+
+
+
+
+<!-- Home -->
+<div class="container mt-4 home-space">
+  <div class="row align-items-center">
+    <!-- Partie gauche -->
+    <div class="col-md-6 divdesc mb-4 mb-md-0">
+      <h1 class="title-with-typing">
+        <span class="static-text">Je m'appelle</span>
+        <span class="typing-text highlight" [style.--chars]="charCount">{{nom}}</span>
+      </h1>
+      <h2>Ingénieur en informatique</h2>
+      <p>
+        Spécialisé dans le développement et la gestion de solutions logicielles. Expérience dans la conception et le déploiement d’applications web et backend, ainsi que dans l’optimisation des processus de développement.
+      </p>
+      <div class="d-flex gap-3">
+        <a href="https://facebook.com" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="Facebook">
+        </a>
+        <a href="https://twitter.com" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/24/733/733579.png" alt="Twitter">
+        </a>
+        <a href="https://linkedin.com" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/24/733/733561.png" alt="LinkedIn">
+        </a>
+        <a href="https://github.com" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/24/733/733553.png" alt="GitHub">
+        </a>
+      </div>
+    </div>
+
+    <!-- Partie droite : GIF animé -->
+    <div class="col-md-6 divimg text-center">
+      <img src="assets/img1.gif" class="space-img" alt="GIF Profil">
+    </div>
+  </div>
+</div>
+
+<app-about></app-about>
+<app-education></app-education>
+<app-projects></app-projects>
+<app-skills></app-skills>
+<app-contact></app-contact>
+
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 60px 0;
+  }
+  
+  .text-gradient {
+    font-size: 2.2rem;
+  }
+  
+  .highlight-text {
+    font-size: 1.1rem;
+  }
+  
+  /* Désactivation des animations sur mobile */
+  .profile-image-container,
+  .description-container,
+  .bio-text {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+
+
+import { CommonModule } from '@angular/common';
+import { AfterViewInit, Component } from '@angular/core';
+
+@Component({
+  selector: 'app-about',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './about.component.html',
+  styleUrl: './about.component.scss'
+})
+export class AboutComponent implements AfterViewInit {
+
+  ngAfterViewInit() {
+    this.setupScrollAnimations();
+  }
+
+  setupScrollAnimations() {
+    // Vérification que le code s'exécute côté navigateur
+    if (typeof window === 'undefined' || typeof IntersectionObserver === 'undefined') {
+      console.warn('IntersectionObserver is not available (likely due to SSR).');
+      return;
+    }
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target;
+  
+          if (element.classList.contains('profile-image-container')) {
+            setTimeout(() => {
+              element.classList.add('animate');
+            }, 100);
+          }
+  
+          if (element.classList.contains('description-container')) {
+            setTimeout(() => {
+              element.classList.add('animate');
+              element.classList.add('animate-border');
+            }, 300);
+          }
+  
+          if (element.classList.contains('highlight-text')) {
+            setTimeout(() => {
+              element.classList.add('animate');
+            }, 500);
+          }
+  
+          if (element.classList.contains('bio-text')) {
+            const bioTexts = document.querySelectorAll('.bio-text');
+            bioTexts.forEach((text, index) => {
+              setTimeout(() => {
+                text.classList.add('animate');
+              }, 600 + (index * 200));
+            });
+          }
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+  
+    const elementsToAnimate = [
+      '.profile-image-container',
+      '.description-container',
+      '.highlight-text',
+      '.bio-text'
+    ];
+  
+    elementsToAnimate.forEach(selector => {
+      const element = document.querySelector(selector);
+      if (element) {
+        if (selector === '.bio-text') {
+          document.querySelectorAll(selector).forEach(el => observer.observe(el));
+        } else {
+          observer.observe(element);
+        }
+      }
+    });
+  }
+  
+}
+
+"budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+                }
+              ],

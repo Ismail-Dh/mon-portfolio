@@ -1,0 +1,25 @@
+<div class="skills-page">
+  <div class="container">
+    <h1 class="section-title">Mes Compétences Techniques</h1>
+    
+    <div class="skills-categories">
+      <button *ngFor="let category of categories" 
+              [class.active]="activeCategory === category.value"
+              (click)="filterSkills(category.value)">
+        <i [class]="category.icon"></i>
+        {{ category.name }}
+      </button>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card" 
+           *ngFor="let skill of filteredSkills"
+           [attr.data-category]="skill.category">
+        <div class="skill-icon">
+          <i [class]="skillIcons[skill.name]"></i>
+        </div>
+        <div class="skill-name">{{ skill.name }}</div>
+      </div>
+    </div>
+  </div>
+</div>

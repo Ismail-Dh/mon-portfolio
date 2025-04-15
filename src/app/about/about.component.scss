@@ -1,0 +1,194 @@
+/* Structure de base */
+.about-page {
+  color: white;
+  padding: 0 0;
+  margin-top: 0;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom:200px ;
+}
+
+/* Conteneur principal */
+.container.py-5 {
+  position: relative;
+  z-index: 2;
+}
+
+/* Section de description avec fond transparent */
+.description-container {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+/* Effet de bordure animé */
+.description-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00fff0, #0084ff);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s ease 0.3s;
+}
+
+/* Styles de texte */
+.text-gradient {
+  background: linear-gradient(135deg, #00fff0 0%, #0084ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.highlight-text {
+  color: #00fff0;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease 0.4s;
+}
+
+.bio-text {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.bio-text:nth-child(1) {
+  transition-delay: 0.6s;
+}
+
+.bio-text:nth-child(2) {
+  transition-delay: 0.8s;
+}
+
+/* Conteneur image */
+.profile-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s cubic-bezier(0.3, 0.1, 0.1, 1);
+}
+
+/* Image de profil */
+.profile-img {
+  width: 100%;
+  border-radius: 20px;
+  position: relative;
+  z-index: 3;
+  border: 3px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.02);
+}
+
+/* Effet de halo */
+.glow-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  height: 90%;
+  background: linear-gradient(45deg, #00fff0, #0084ff);
+  border-radius: 20px;
+  filter: blur(30px);
+  opacity: 0.3;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  animation: glow-pulse 8s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  50% { 
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+/* Arrière-plan décoratif */
+.about-page::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: 1;
+}
+
+/* Classes d'animation */
+.animate {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}
+
+.animate-border::before {
+  transform: scaleX(1) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .profile-image-container {
+    max-width: 350px;
+    margin-bottom: 3rem;
+  }
+  
+  .description-container {
+    padding: 2rem;
+  }
+}
+
+
+/* Ajoutez ceci à votre fichier about.component.scss */
+@media (max-width: 768px) {
+  /* Désactive les animations complexes sur mobile */
+  .profile-image-container,
+  .description-container,
+  .highlight-text,
+  .bio-text {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .description-container::before {
+    transform: scaleX(1) !important;
+  }
+}
+
+/* Assure une transition fluide */
+.animate {
+  transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
