@@ -31,12 +31,20 @@ export class ProjectsComponent {
 
   projects = [
     {
+  title: 'Gestion des Interventions – Microservices',
+  description: 'Application full-stack pour gérer les interventions techniques avec architecture microservices, sécurité JWT et messagerie RabbitMQ.',
+  category: 'web',
+  tools: ['Angular', 'Spring Boot', 'Microservices', 'RabbitMQ', 'MySQL', 'MongoDB', 'JWT', 'Docker'],
+  image: 'assets/intervention.png',
+  codeUrl: 'https://github.com/Ismail-Dh/-application_gestion_des-_interventions_Backend'
+},
+
+    {
       title: 'Location de Voitures',
       description: 'Application web pour réserver et gérer la location de voitures avec authentification sécurisée.',
       category: 'web',
       tools: ['Angular', 'Spring Boot', 'Spring Security', 'MySQL', 'UML', 'Postman'],
       image: 'assets/car.webp',
-      demoUrl: '#',
       codeUrl: 'https://github.com/Ismail-Dh/projet_location_voiture_backend'
     },
     {
@@ -45,8 +53,7 @@ export class ProjectsComponent {
       category: 'web',
       tools: ['PHP', 'HTML', 'CSS', 'Bootstrap', 'Merise', 'MySQL'],
       image: 'assets/formation.jpeg',
-      demoUrl: '#',
-      codeUrl: '#'
+      codeUrl: 'https://github.com/Ismail-Dh/-application_gestion_Centre_de_Formation'
     },
     {
       title: 'Système Bancaire',
@@ -54,7 +61,6 @@ export class ProjectsComponent {
       category: 'desktop',
       tools: ['C++'],
       image: 'assets/bancaire.webp',
-      demoUrl: '#',
       codeUrl: 'https://github.com/Ismail-Dh/projet_gestion_bancaire.git'
     },
     {
@@ -63,7 +69,6 @@ export class ProjectsComponent {
       category: 'desktop',
       tools: ['Java', 'Swing', 'MongoDB'],
       image: 'assets/tache.jpeg',
-      demoUrl: '#',
       codeUrl: 'https://github.com/Ismail-Dh/projet_gestion_des_taches'
     },
     {
@@ -72,7 +77,6 @@ export class ProjectsComponent {
       category: 'data',
       tools: ['Python'],
       image: 'assets/image.jpeg',
-      demoUrl: '#',
       codeUrl: '#'
     },
     {
@@ -81,16 +85,14 @@ export class ProjectsComponent {
       category: 'web',
       tools: ['Angular', 'Spring Boot', 'MongoDB'],
       image: 'assets/projet.png',
-      demoUrl: '#',
-      codeUrl: '#'
+      codeUrl: 'https://github.com/Ismail-Dh/gestion-projets-groupe'
     },
     {
-      title: 'Application de Voyages',
-      description: 'Application mobile pour organiser des voyages et gérer les réservations.',
+      title: 'Application de Notes',
+      description: 'Application mobile Android en Java offrant une plateforme d’organisation tout-en-un, intégrant un journal intime, une to-do list, un bloc-notes et des listes personnalisées, y compris hiérarchiques.',
       category: 'mobile',
       tools: ['Java'],
-      image: 'assets/voyage.jpeg',
-      demoUrl: '#',
+      image: 'assets/OIP.webp',
       codeUrl: '#'
     },
     {
@@ -99,7 +101,6 @@ export class ProjectsComponent {
       category: 'game',
       tools: ['Python'],
       image: 'assets/snake.jpeg',
-      demoUrl: '#',
       codeUrl: '#'
     }
   ];
