@@ -77,7 +77,7 @@ export class ProjectsComponent {
       category: 'data',
       tools: ['Python'],
       image: 'assets/image.jpeg',
-      codeUrl: '#'
+      codeUrl: 'https://github.com/Ismail-Dh/-application_Traitement_des_Images'
     },
     {
       title: 'Gestion de Projets Académiques',
